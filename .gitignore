@@ -5,7 +5,7 @@ node_modules/
 dist/
 
 # Compiled CSS from Tailwind (generated file, not source)
-src/public/css/style.css
+fullstack/src/public/css/style.css
 
 # Env files
 .env
