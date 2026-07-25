@@ -15,3 +15,7 @@ src/public/css/style.css
 .DS_Store
 Thumbs.db
 .vscode/
+
+# Contexto local de trabajo (enunciados, instrucciones) — no forma parte de la entrega
+CLAUDE.md
+context/
