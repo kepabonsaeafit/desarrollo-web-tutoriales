@@ -7,6 +7,10 @@ dist/
 # Compiled CSS from Tailwind (generated file, not source)
 fullstack/src/public/css/style.css
 
+# Frontend (Vue/Vite)
+frontend/dist-ssr/
+frontend/*.local
+
 # Env files
 .env
 .env.local
@@ -16,6 +20,7 @@ fullstack/src/public/css/style.css
 Thumbs.db
 .vscode/
 
-# Contexto local de trabajo (enunciados, instrucciones) — no forma parte de la entrega
+# Contexto local de trabajo (enunciado, instrucciones, notas de convenciones) —
+# no forma parte de la entrega. Aplica a CLAUDE.md en cualquier nivel del repo.
 CLAUDE.md
 context/
