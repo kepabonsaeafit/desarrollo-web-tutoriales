@@ -21,6 +21,8 @@ Thumbs.db
 .vscode/
 
 # Contexto local de trabajo (enunciado, instrucciones, notas de convenciones) —
-# no forma parte de la entrega. Aplica a CLAUDE.md en cualquier nivel del repo.
+# no forma parte de la entrega. Aplica a CLAUDE.md y AGENTS.md en cualquier nivel del repo.
 CLAUDE.md
+AGENTS.md
 context/
+.zcode/
