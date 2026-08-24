@@ -19,4 +19,9 @@ export class BookService {
   static deleteLastBook(): void {
     useBookStore().books.pop();
   }
+
+  static getUniqueCategories(): string[] {
+    const categories = useBookStore().books.map((book) => book.category);
+    return Array.from(new Set(categories));
+  }
 }
