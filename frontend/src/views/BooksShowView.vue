@@ -2,11 +2,17 @@
 import BookReviews from '@/components/BookReviews.vue';
 import { BookService } from '@/services/BookService.js';
 import { formatToCOP } from '@/utils/format.js';
+import type { BookInterface } from '@/interfaces/BookInterface.js';
 import { useRoute } from 'vue-router';
+import { onMounted, ref } from 'vue';
 
 const route = useRoute();
 const bookId = Number(route.params.id);
-const book = BookService.getBookById(bookId);
+const book = ref<BookInterface | null>(null);
+
+onMounted(async () => {
+  book.value = await BookService.getBookById(bookId);
+});
 </script>
 
 <template>

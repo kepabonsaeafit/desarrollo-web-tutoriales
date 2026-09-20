@@ -1,19 +1,13 @@
 <script setup lang="ts">
 import { BookService } from '@/services/BookService.js';
-import { formatToCOP } from '@/utils/format.js';
-import { computed, ref } from 'vue';
+import type { BookInterface } from '@/interfaces/BookInterface.js';
+import { onMounted, ref } from 'vue';
 
-const books = BookService.getBooks();
+const books = ref<BookInterface[]>([]);
 
-const selectorCategories = BookService.getUniqueCategories();
-const selectedCategory = ref('');
-const filteredBooks = computed(() =>
-  selectedCategory.value ? books.filter((book) => book.category === selectedCategory.value) : books,
-);
-
-function deleteLastBook() {
-  BookService.deleteLastBook();
-}
+onMounted(async () => {
+  books.value = await BookService.getBooks();
+});
 </script>
 
 <template>
@@ -25,29 +19,10 @@ function deleteLastBook() {
           class="inline-block bg-blue-600 text-white font-semibold px-5 py-2 rounded hover:bg-blue-700 transition"
           >+ Add Book</RouterLink
         >
-        <button
-          type="button"
-          class="inline-block bg-red-600 text-white font-semibold px-5 py-2 rounded hover:bg-red-700 transition ml-4"
-          @click="deleteLastBook"
-        >
-          - Delete Last Book
-        </button>
-      </div>
-
-      <div class="flex justify-end mb-6">
-        <select
-          v-model="selectedCategory"
-          class="w-full border border-gray-300 rounded py-2 px-3 focus:outline-none focus:ring focus:border-blue-300"
-        >
-          <option value="">All Categories</option>
-          <option v-for="category in selectorCategories" :key="category" :value="category">
-            {{ category }}
-          </option>
-        </select>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div v-for="book in filteredBooks" :key="book.id">
+        <div v-for="book in books" :key="book.id">
           <div
             class="bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300 p-6 border border-gray-200"
           >
@@ -68,7 +43,7 @@ function deleteLastBook() {
 
             <div class="flex justify-center mb-4">
               <img
-                :src="`https://picsum.photos/seed/${book.id}/536/354`"
+                src="https://picsum.photos/seed/picsum/536/354"
                 alt="Book Cover"
                 class="object-cover rounded shadow-sm w-full h-auto"
               />
@@ -82,7 +57,7 @@ function deleteLastBook() {
             <div class="bg-gray-50 rounded-lg p-3 mb-4">
               <div class="flex justify-between text-sm">
                 <span class="text-gray-600">Price:</span>
-                <span class="font-semibold">${{ formatToCOP(book.price) }} COP</span>
+                <span class="font-semibold">${{ book.price }} COP</span>
               </div>
             </div>
 
