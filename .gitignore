@@ -1,8 +1,8 @@
 # Dependencies
 node_modules/
 
-# Build output
-dist/
+# Build output (backend/dist and frontend/dist are versioned for the Docker deploy)
+fullstack/dist/
 
 # Compiled CSS from Tailwind (generated file, not source)
 fullstack/src/public/css/style.css
