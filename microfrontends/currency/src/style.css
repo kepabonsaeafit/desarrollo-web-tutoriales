@@ -1,0 +1,66 @@
+.currency {
+  padding: 20px;
+  border: 1px solid #d9dee5;
+  border-radius: 8px;
+  background: #fff;
+  font-family: system-ui, sans-serif;
+}
+
+.currency h2,
+.currency p {
+  margin: 0;
+}
+
+.currency h2 {
+  font-size: 1.25rem;
+}
+
+.currency .tag,
+.currency .rate {
+  margin-top: 4px;
+  color: #52606d;
+  font-size: 0.85rem;
+}
+
+.currency form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: end;
+  margin-top: 16px;
+}
+
+.currency label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9rem;
+}
+
+.currency input,
+.currency select {
+  padding: 8px 10px;
+  border: 1px solid #cbd2d9;
+  border-radius: 6px;
+  font: inherit;
+  background: #fff;
+}
+
+.currency button {
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 6px;
+  background: #1f2933;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.currency button:hover {
+  background: #323f4b;
+}
+
+.currency .result {
+  margin-top: 16px;
+  font-size: 1.1rem;
+}
